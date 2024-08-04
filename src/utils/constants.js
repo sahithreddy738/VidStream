@@ -1,0 +1,1 @@
+export const YOUTUBE_KEY=process.env.REACT_APP_YOUTUBE_DATA_KEY;
