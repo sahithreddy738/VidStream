@@ -1,9 +1,12 @@
+import Body from './components/Body';
+import Header from './components/Header';
 import './index.css';
 
 function App() {
   return (
     <div>
-       <h1 className='font-bold text-center'>VidStream</h1>
+        <Header/>
+        <Body/>
     </div>
   );
 }
