@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className='flex w-full'>
+    <div className='flex w-[100%]'>
         <div className='flex flex-row w-[20%] space-x-6 items-center ml-6'>
             <img alt="menu-icon" src={`hamburger-icon.png`} className='w-8 cursor-pointer'></img>
             <img alt="youtube-icon" src="Youtube-Logo.png" className='w-28 cursor-pointer'></img>
