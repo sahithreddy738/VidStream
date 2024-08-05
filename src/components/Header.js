@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { YOUTUBE_SUGGESTIONS_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addSuggestionsCache } from "../utils/slices/searchSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -9,10 +10,11 @@ const Header = () => {
   const [showSuggestions, setShowSuggetions] = useState(false);
   const cacheResults = useSelector((store) => store.cache);
   const dispatch = useDispatch();
+  const navigate=useNavigate();
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (!cacheResults[searchQuery]) fetchSearchSuggestions();
-      else setSuggestions(cacheResults[searchQuery])
+      else setSuggestions(cacheResults[searchQuery]);
     }, 200);
     return () => clearTimeout(timeoutId);
   }, [searchQuery]);
@@ -22,6 +24,10 @@ const Header = () => {
     setSuggestions(jsonData[1]);
     dispatch(addSuggestionsCache({ [jsonData[0]]: jsonData[1] }));
   };
+  const handleSearchNavigation=() =>{
+     navigate("/results?search_query="+searchQuery);
+     setSearchQuery("");
+  }
   return (
     <div className="flex w-[100%]">
       <div className="flex flex-row w-[20%] space-x-6 items-center ml-6">
@@ -46,7 +52,7 @@ const Header = () => {
             onFocus={() => setShowSuggetions(true)}
             onBlur={() => setShowSuggetions(false)}
           />
-          <button className="border rounded-r-3xl w-[8%] px-4 py-2 bg-gray-200">
+               <button className="border rounded-r-3xl w-[8%] px-4 py-2 bg-gray-200" onClick={handleSearchNavigation}>
             Search
           </button>
         </div>
@@ -55,7 +61,13 @@ const Header = () => {
           <div className="absolute w-[55%] z-10 shadow-lg bg-white px-5 py-2">
             <ul>
               {suggestions?.map((suggestion) => (
-                <li key={suggestion} className="mb-2 font-semibold hover:bg-gray-100">
+                <li
+                  key={suggestion}
+                  className="mb-2 font-semibold hover:bg-gray-100 relative z-20"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onMouseUp={() => { setSearchQuery(suggestion)}}
+                  onClick={handleSearchNavigation}
+                >
                   {suggestion}
                 </li>
               ))}
