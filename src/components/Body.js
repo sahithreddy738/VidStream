@@ -1,14 +1,15 @@
 import React from 'react'
 import NavBar from './NavBar';
-import MainContainer from './MainContainer';
+import { Outlet } from 'react-router-dom';
+import useVideos from '../hooks/useVideos';
 
 
 const Body = () => {
-
+  useVideos();
   return (
     <div className='flex flex-row w-[100%] space-x-4'>
         <NavBar className="w-[20%]"/>
-        <MainContainer className="w-[80%]"/>
+        <Outlet className="w-[80%]"/>
     </div>
   )
 }

@@ -1,14 +1,18 @@
 import { formatDistanceToNow } from "date-fns";
 import React from "react";
+import { useNavigate} from "react-router-dom";
 
 const VideoCard = ({ videoData }) => {
-  const { contentDetails, snippet, statistics } = videoData;
-  const { duration } = contentDetails;
+  const navigate=useNavigate();
+  const {  snippet, statistics } = videoData;
+  // const { duration } = contentDetails;
   const { channelTitle, title, thumbnails, publishedAt } = snippet;
   const { viewCount } = statistics;
-
+ const handleVideoClick=() => {
+    navigate("/watch?v="+videoData.id);
+ }
   return (
-    <div className="flex flex-col space-y-2 mr-2 w-[30%] mb-2">
+    <div className="flex flex-col space-y-2 mr-2 w-[30%] mb-2 cursor-pointer" onClick={handleVideoClick}>
       <div className="w-full relative" style={{ paddingBottom: '56.25%' }}>
         <img
           alt="video-thumbnail"

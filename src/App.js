@@ -1,14 +1,15 @@
 import { Provider } from 'react-redux';
-import Body from './components/Body';
 import Header from './components/Header';
 import './index.css';
 import appStore from './utils/appStore';
+import { RouterProvider } from 'react-router-dom';
+import appRouter from './utils/routingConfig';
 
 function App() {
   return (
     <Provider store={appStore}>
         <Header/>
-        <Body/>
+        <RouterProvider router={appRouter}/>
     </Provider>
   );
 }
