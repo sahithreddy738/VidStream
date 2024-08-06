@@ -4,7 +4,6 @@ const WatchVideo = ({ videoData }) => {
   const { snippet } = videoData;
   const { title } = snippet;
 
-  console.log(snippet.description);
   return (
     <div className="w-full flex flex-col space-y-4">
       <iframe
