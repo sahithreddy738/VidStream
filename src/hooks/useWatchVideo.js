@@ -3,6 +3,7 @@ import { YOUTUBE_KEY } from "../utils/constants";
 
 const useWatchVideo = (videoId) => {
   useEffect(() => {
+    window.scrollTo(0,0);
     fetchVideoById(videoId);
   }, [videoId]);
   const fetchVideoById = async (videoId) => {
