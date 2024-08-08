@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addSuggestionsCache } from "../utils/slices/searchSlice";
 import { useNavigate } from "react-router-dom";
 import { removeSearchVideos } from "../utils/slices/videosSlice";
+import { toggleNavBar } from "../utils/slices/appConfigSlice";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,11 +33,12 @@ const Header = () => {
   };
   return (
     <div className="flex w-[100%]">
-      <div className="flex flex-row w-[20%] space-x-6 items-center ml-6">
+      <div className="flex flex-row w-[20%] space-x-6 items-center ml-6 fixed">
         <img
           alt="menu-icon"
           src={`hamburger-icon.png`}
           className="w-8 cursor-pointer"
+          onClick={()=>dispatch(toggleNavBar())}
         ></img>
         <img
           alt="youtube-icon"
@@ -45,7 +47,7 @@ const Header = () => {
           onClick={()=>navigate("/")}
         ></img>
       </div>
-      <div className="w-[70%] ml-28 mt-3 relative">
+      <div className="w-[70%] ml-[35%] mt-3 mb-3 relative">
         <div className="flex flex-row w-[100%] items-center">
           <input
             placeholder="Search"
@@ -56,7 +58,7 @@ const Header = () => {
             onBlur={() => setShowSuggetions(false)}
           />
           <button
-            className="border rounded-r-3xl w-[8%] px-4 py-2 bg-gray-200"
+            className="border rounded-r-3xl w-[10%] px-4 py-2 bg-gray-200"
             onClick={handleSearchNavigation}
           >
             Search
