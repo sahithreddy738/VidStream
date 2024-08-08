@@ -6,7 +6,7 @@ import Shimmer from "./Shimmer";
 const ButtonList = () => {
   const videoCategories = useSelector((store) => store.videos.videoCategories);
   useVideosCategories();
-  if (videoCategories.length === 0) return <Shimmer />;
+  if (videoCategories?.length === 0) return <Shimmer />;
   return (
     <div className="flex space-x-2 overflow-x-scroll hide-scrollbar">
       {videoCategories?.map((videoCategory) => (

@@ -15,9 +15,8 @@ const WatchPage = () => {
   const videoInfo = useSelector((store) => store.watch.videoInfo);
   useComments(videoId);
   useVideoById(videoId);
-  if (comments.length === 0 && videoInfo.length === 0) return <Shimmer />;
   return (
-    videoInfo.length > 0 && (
+    videoInfo?.length > 0 && (
       <div className="w-[60%] space-y-2">
         <WatchVideo videoData={videoInfo[0]} />
         <VideoDescription videoData={videoInfo[0]} />
