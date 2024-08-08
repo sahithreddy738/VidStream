@@ -5,7 +5,8 @@ const appConfigSlice=createSlice({
     name:"appConfig",
     initialState:{
         loading:false,
-        toggleNav:true
+        toggleNav:true,
+        chatMessages:[]
     },
     reducers:{
         toggleLoading:(state,action) =>{
@@ -13,9 +14,13 @@ const appConfigSlice=createSlice({
         },
         toggleNavBar:(state)=>{
             state.toggleNav=!state.toggleNav
-        }
+        },
+        addChatMessages:(state,action) =>{
+            state.chatMessages.unshift(action.payload);
+            state.chatMessages.splice(10);
+        },
     }
 })
 
-export const {toggleLoading,toggleNavBar}=appConfigSlice.actions;
+export const {toggleLoading,toggleNavBar,addChatMessages}=appConfigSlice.actions;
 export default appConfigSlice.reducer;
