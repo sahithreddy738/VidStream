@@ -3,12 +3,14 @@ import Comment from "./Comment";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleReplies } from "../utils/slices/watchSlice";
 
-const CommentList = ({ commentData }) => {
+const CommentList = ({ commentData,videoData }) => {
   const dispatch = useDispatch();
   const showReplies = useSelector((store) => store.watch.showReplies);
+  const {statistics}=videoData;
+  const {commentCount}=statistics;
   return (
     <div className="w-full flex flex-col justify-start space-y-6 bg-gray-100 p-4 rounded-lg">
-      <h1 className="text-2xl font-semibold">Comments</h1>
+      <h1 className="text-2xl font-semibold">{"("+commentCount+")"}  Comments</h1>
       <div className="w-[full] flex flex-col space-y-6">
         {commentData?.map((comment) => (
           <div>
