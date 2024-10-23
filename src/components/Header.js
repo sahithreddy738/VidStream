@@ -32,12 +32,12 @@ const Header = () => {
     setSearchQuery("");
   };
   return (
-    <div className="flex w-[100%]">
-      <div className="flex flex-row w-[20%] space-x-6 items-center ml-6 fixed">
+    <div className="flex w-screen sm:w-[100%]">
+      <div className="flex flex-row w-[20%] mt-2 sm:mt-0 space-x-2 sm:space-x-6 items-center ml-0 sm:ml-6 fixed">
         <img
           alt="menu-icon"
           src={`hamburger-icon.png`}
-          className="w-8 cursor-pointer"
+          className="w-8 cursor-pointer hidden sm:inline-block"
           onClick={()=>dispatch(toggleNavBar())}
         ></img>
         <img
@@ -47,7 +47,7 @@ const Header = () => {
           onClick={()=>navigate("/")}
         ></img>
       </div>
-      <div className="w-[70%] ml-[35%] mt-3 mb-3 relative">
+      <div className=" w-[80%] ml-[25%] sm:ml-[35%] mt-3 mb-3 relative">
         <div className="flex flex-row w-[100%] items-center">
           <input
             placeholder="Search"
@@ -58,7 +58,7 @@ const Header = () => {
             onBlur={() => setShowSuggetions(false)}
           />
           <button
-            className="border rounded-r-3xl w-[10%] px-4 py-2 bg-gray-200"
+            className="border rounded-r-3xl sm:rounded-r-3xl w-[35%] sm:w-[10%] px-4 py-2 bg-gray-200"
             onClick={handleSearchNavigation}
           >
             Search
@@ -66,7 +66,7 @@ const Header = () => {
         </div>
 
         {showSuggestions && (
-          <div className="absolute w-[55%] z-10 shadow-lg bg-white px-5 py-2">
+          <div className="absolute w-[90%] sm:w-[55%] z-10 shadow-lg bg-white px-5 py-2">
             <ul>
               {suggestions?.map((suggestion) => (
                 <li
@@ -85,7 +85,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="flex flex-row w-[10%] items-center justify-end mr-4">
+      <div className="flex flex-row w-[15%] sm:w-[10%] items-center justify-end mr-6 sm:mr-4">
         <img alt="user-icon" src="user.png" className="w-8" />
       </div>
     </div>

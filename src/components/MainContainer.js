@@ -13,7 +13,7 @@ const MainContainer = () => {
   dispatch(removeSearchVideos());
   const isLoading=useSelector((store)=>store.appConfig.loading);
   return (
-    <div className='w-full'>
+    <div className='w-screen sm:w-full'>
         <ButtonList />
         <VideoContainer />
         {

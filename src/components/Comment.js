@@ -11,8 +11,8 @@ const Comment = ({ comment }) => {
     textOriginal,
   } = snippet;
   return (
-    <div className="w-[full] flex flex-row space-x-4 mb-6">
-      <div className="w-[8%] h-5 flex-shrink-0"> 
+    <div className="w-[full] flex flex-row space-x-2 sm:space-x-4 mb-4 sm:mb-6">
+      <div className="w-[12%] sm:w-[8%] h-5 flex-shrink-0"> 
         <img
           alt="user-img"
           src={authorProfileImageUrl}
@@ -20,13 +20,13 @@ const Comment = ({ comment }) => {
         ></img>
       </div>
       <div className="flex flex-col">
-        <div className="flex flex-row space-x-2 items-center mb-2">
-          <h1 className="font-semibold text-base">{authorDisplayName}</h1>
-          <span className="font-light text-sm">
+        <div className="flex flex-row space-x-2 items-center mb-2 sm:flex-nowrap flex-wrap">
+          <h1 className="font-bold text-base">{authorDisplayName}</h1>
+          <span className="font-medium text-sm">
             {formatDistanceToNow(new Date(publishedAt), { addSuffix: true })}
           </span>
         </div>
-        <p>{textOriginal}</p>
+        <p className="font-medium text-lg">{textOriginal}</p>
       </div>
     </div>
   );

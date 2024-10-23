@@ -12,7 +12,7 @@ const VideoCard = ({ videoData }) => {
     navigate("/watch?v="+videoData?.id);
  }
   return (
-    <div className="flex flex-col space-y-2 mr-2 w-[30%] mb-2 cursor-pointer" onClick={handleVideoClick}>
+    <div className="flex flex-col space-y-2 mr-2  sm:w-[30%] mb-2 cursor-pointer" onClick={handleVideoClick}>
       <div className="w-full relative" style={{ paddingBottom: '56.25%' }}>
         <img
           alt="video-thumbnail"
@@ -21,8 +21,8 @@ const VideoCard = ({ videoData }) => {
         />
       </div>
       <div className="">
-        <h1 className="font-semibold text-lg">{title}</h1>
-        <h3>{channelTitle}</h3>
+        <h1 className="font-bold text-lg">{title}</h1>
+        <h3 className="font-semibold">{channelTitle}</h3>
         <div className="flex flex-row space-x-2">
           <h3>{(viewCount / 1000000).toFixed(1) + "M"} views |</h3>
           <h3>{formatDistanceToNow(new Date(publishedAt),{addSuffix:true})}</h3>

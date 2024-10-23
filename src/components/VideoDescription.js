@@ -7,7 +7,7 @@ const VideoDescription = ({videoData}) => {
   return (
     <div className='bg-gray-200 p-4 rounded-lg flex flex-col space-y-6'>
       <span className='text-xl font-semibold'>{(viewCount / 1000000).toFixed(1) + "M Views"}</span>
-       {localized.description} 
+      <p className='font-medium text-wrap'>   {localized.description} </p>
     </div>
   )
 }
