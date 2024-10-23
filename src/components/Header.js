@@ -42,7 +42,7 @@ const Header = () => {
         ></img>
         <img
           alt="youtube-icon"
-          src="Youtube-Logo.png"
+          src={`Youtube-Logo.png`}
           className="w-28 cursor-pointer"
           onClick={()=>navigate("/")}
         ></img>
