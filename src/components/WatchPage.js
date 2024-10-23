@@ -17,13 +17,13 @@ const WatchPage = () => {
   useVideoById(videoId);
   return (
     videoInfo?.length > 0 && (
-      <div className="flex flex-row space-x-6">
-        <div className="w-[60%] space-y-2">
+      <div className="ml-1 sm:ml-0 flex flex-row space-x-6">
+        <div className="w-[95%] sm:w-[60%] space-y-2">
           <WatchVideo videoData={videoInfo[0]} />
           <VideoDescription videoData={videoInfo[0]} />
           <CommentList commentData={comments} videoData={videoInfo[0]}/>
         </div>
-        <div className="w-[30%]">
+        <div className="hidden sm:inline-block w-[30%]">
           <LiveChat />
           
         </div>

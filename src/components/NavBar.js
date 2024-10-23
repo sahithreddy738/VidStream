@@ -11,7 +11,7 @@ import {
 const NavBar = () => {
   return (
     <>
-      <div className="flex flex-col space-y-4 ">
+      <div className="sm:flex sm:flex-col sm:space-y-4 hidden">
         <div>
           <NavList navItems={HOME_NAVLIST} heading="" />
           <span className="border-b-4  border-gray-300"></span>

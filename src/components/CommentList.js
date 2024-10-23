@@ -19,9 +19,9 @@ const CommentList = ({ commentData,videoData }) => {
               comment={comment?.snippet?.topLevelComment}
             />
             {comment.replies && comment.replies ? (
-              <div className="ml-24 mt-2 flex flex-col space-y-4">
+              <div className="ml-16 sm:ml-24 mt-2 flex flex-col space-y-4">
                 <span
-                  className="text-blue-400 cursor-pointer text-xl"
+                  className="text-blue-400 font-semibold cursor-pointer text-xl"
                   onClick={() => dispatch(toggleReplies())}
                 >
                   {showReplies

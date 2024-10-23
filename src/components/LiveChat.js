@@ -23,7 +23,7 @@ const LiveChat = () => {
     );
   };
   return (
-    <div className="shadow-md rounded-lg">
+    <div className="hidden sm:inline-block shadow-md rounded-lg">
       <div className="w-full  h-[450px]  border-b-2 border-gray-100 flex flex-col-reverse overflow-y-auto">
         {chatMessages?.map((message) => (
           <ChatComponent
