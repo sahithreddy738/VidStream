@@ -18,7 +18,7 @@ const WatchVideo = ({ videoData }) => {
       <h1 className="font-bold text-2xl mb-4 sm:mb-0">{title}</h1>
       <div className="flex flex-row items-start sm:items-center space-x-4 w-full">
         <div className="flex flex-col items-start space-y-2 sm:flex-row sm:space-x-2 w-[50%] sm:items-center ">
-          <span className="font-bold text-xl">{channelTitle}</span>
+          <span className="font-semibold text-xl">{channelTitle}</span>
           <button className="bg-blue-400 px-4 py-2 rounded-2xl">
             Subscribe
           </button>
